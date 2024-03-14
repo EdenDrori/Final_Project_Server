@@ -1,0 +1,181 @@
+
+### GET All users:
+GET http://localhost:8081/api/v1/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcwMzE1NDUwMH0.XaRGi5cil98w2anyMwjTI90u4Wq9Dk2UIDBdLBC4qCY
+
+
+### Add a user:
+POST http://localhost:8081/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "EDEN",
+    "last": "DRORI"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "country": "Israel",
+    "houseNumber": 20
+  },
+
+  "phone": "050-8123091",
+  "email": "DRORIEEE1@gmail.com",
+  "isBusiness": true,
+  "password": "123456aA!"
+}
+
+
+### Login:
+POST http://localhost:8081/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "123456aA!"
+}
+
+### GET user by id
+GET http://localhost:8081/api/v1/users/658bf8ebf2ed6a63ee3e819a
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJQGdtYWlsLmNvbSIsImlhdCI6MTcwMzY3MjExN30.P1p8vuIe0cK6LgBe3JJBNLcAsEAxrQcUSWKoQlSgyBg
+
+ 
+### GET user by id with JWT of admin:
+GET http://localhost:8081/api/v1/users/658bf8ebf2ed6a63ee3e819a
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcwMzY3MjcyNn0.KHp3nLfyuly-aWZBNjCS_FfrL32YeShZ8i9SmlRU89k
+
+
+//check email is required error
+### PUT edit user:
+PUT http://localhost:8081/api/v1/users/658d47b5e09ec7ab0224f359
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJRUVFQGdtYWlsLmNvbSIsImlhdCI6MTcwMzc1Nzc1N30.XYKn5qGPQp20kL-O2SByOy6FDrWnInTYcK8YlH5h9Hs
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "EDEN!",
+    "last": "DRORI!"
+  },
+  "address": {
+    "street": "123 Main St", 
+    "city": "Anytown",
+    "country": "Israel",
+    "houseNumber": 20,
+    "zip": "12345"
+  },
+  "image": {
+    "alt": "user-profile",
+    "url": "https://picsum.photos/200/300"
+  },
+  "phone": "050-8123091",
+  "email": "DRORIEEE@gmail.com",
+  "isBusiness": true,
+  "password": "123456aA!" 
+}
+
+### DELETE user:
+DELETE http://localhost:8081/api/v1/users/6584138779c7c62b862e2017
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJQGJhdGNhdmUuY29tIiwiaWF0IjoxNzAzMTU0NjI0fQ.4FzMV4CUu24FOgBdVkqSnmxfqD7ObeaLEwq7d3Ax2ZY
+
+
+### PATCH user change isBizz status:
+PATCH http://localhost:8081/api/v1/users/658bf8ebf2ed6a63ee3e819a
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcwMzY3MjcyNn0.KHp3nLfyuly-aWZBNjCS_FfrL32YeShZ8i9SmlRU89k
+
+
+//items requests:
+
+### POST create item:
+POST http://localhost:8081/api/v1/items
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIl9pZCI6IjY1OGIzNjAwZDU2MzAxNjlhYWZhZTFiZSIsImlzQnVzaW5lc3MiOnRydWUsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjUyOTkzNn0.X4fGNESHYQ8lSOTYoMZ4uqDTwJOlEtlUrJgEfvSPFxY
+Content-Type: application/json
+
+{
+    "address": {
+      "city": "Tel Aviv",
+     
+      "country": "Israel",
+      "street": "Alenbi",
+      
+      "houseNumber": 20
+    },
+   
+    "phone": "050-4186390",
+    "title": "Bag222",
+    "category": "accessories",
+    "brand": "Gucci",
+    "price":350,
+    "description":
+      "Gucci Blondie Shoulder Bag in 12A quality with Gucci green box. gently used for 3 months, embodying both style and sophistication"
+  }
+
+
+### GET items:
+GET http://localhost:8081/api/v1/items
+
+### GET item by id:
+GET http://localhost:8081/api/v1/items/658bfad7f2ed6a63ee3e81c2
+
+
+### PUT edit items:
+PUT http://localhost:8081/api/v1/items/65a656638a5f7d1bbf737268
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJRUVFMUBnbWFpbC5jb20iLCJfaWQiOiI2NWE2NTU1ZjhhNWY3ZDFiYmY3MzcyNGUiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA1Mzk5ODQxfQ.EzMJ0tEdf7sXdYTbdWHb8otYg41-Uivd3kwqThLDnRg
+Content-Type: application/json
+
+{
+    "address": {
+      "city": "Tel Aviv",
+      "state": "",
+      "country": "Israel",
+      "street": "Alenbi",
+      "zip": "12345",
+      "houseNumber": 20
+    },
+    "image": {
+      "url": "https://www.upenmeghastore.com/wp-content/uploads/2023/08/IMG-20230816-WA0026-1.jpg",
+      "alt": "Gucci bag"
+    },
+    "phone": "050-4186390",
+    "title": "Bag222!!!!!!",
+    "brand": "Gucci",
+    "status":"sold",
+    "price": 350,
+    "description":
+      "Gucci Blondie Shoulder Bag in 12A quality with Gucci green box. gently used for 3 months, embodying both style and sophistication"
+  }
+
+### GET my items:
+GET http://localhost:8081/api/v1/items/my-items
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJQGdtYWlsLmNvbSIsImlhdCI6MTcwMzY3MjExN30.P1p8vuIe0cK6LgBe3JJBNLcAsEAxrQcUSWKoQlSgyBg
+
+
+### DELETE my item:
+DELETE http://localhost:8081/api/v1/items/6584161a79c7c62b862e205c
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJQGJhdGNhdmUuY29tIiwiaWF0IjoxNzAzMTU1MTQxfQ.ZcbviGQ628tYQjZX5A30Qk_q72JV7dxvgENUZrIrT78
+
+
+
+### PATCH like items
+PATCH  http://localhost:8081/api/v1/items/658bfad7f2ed6a63ee3e81c2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkRST1JJQGdtYWlsLmNvbSIsImlhdCI6MTcwMzY3MjExN30.P1p8vuIe0cK6LgBe3JJBNLcAsEAxrQcUSWKoQlSgyBg
+Content-Type: application/json
+
+
+
+### POST create message:
+POST http://localhost:8081/api/v1/contact
+Content-Type: application/json
+
+{
+    "name": "eden",
+    "email": "eden@gmail.com",
+    "message": "hallo"
+    
+  }
+
+### GET all messages:
+GET http://localhost:8081/api/v1/contact
+Authorization: bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIl9pZCI6IjY1OGIzNjAwZDU2MzAxNjlhYWZhZTFiZSIsImlzQnVzaW5lc3MiOnRydWUsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjUyOTkzNn0.X4fGNESHYQ8lSOTYoMZ4uqDTwJOlEtlUrJgEfvSPFxY
+
