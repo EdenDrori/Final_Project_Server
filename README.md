@@ -40,8 +40,8 @@ In the terminal, run npm start to launch the website.
 Access the site in your web browser to begin using the application.
 Admin Credentials:
 To access the admin account and CRM functionality, please use the following credentials:
-- Email: admin@example.com
-- Password: admin123
+- Email: admin@gmail.com
+- Password: 123456aA!
 
 Support and Feedback:
 For any questions, issues, or feedback regarding the Vintage Shop project, please contact edendrori36@gmail.com.
